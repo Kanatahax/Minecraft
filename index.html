@@ -1,44 +1,157 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>利用可能サービス</title>
+    <title>Project-Kanata-Minecraft</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            color: #fff; /* 白色に変更 */
-            background-color: #333; /* 背景色を変更 */
+            background-image: url('https://i.gifer.com/origin/4d/4d3e7b98dca300caa3365ea6870c8e3d_w200.gif');
+            background-size: cover;
+            color: #00ff00;
+            font-family: 'Minecraft', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
         }
+
         h1 {
-            color: #fff; /* 白色に変更 */
+            font-size: 3em;
+            opacity: 0;
+            white-space: nowrap;
+            animation: slideIn 2s ease-out forwards;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+
+        .box {
+            position: relative;
+            background-color: white; /* 白色の四角形 */
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 19px;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 2s forwards;
         }
-        li {
-            margin-bottom: 10px;
+
+        .services {
+            font-size: 1.5em;
+            margin: 0;
+            color: rgba(128, 128, 128, 0.7); /* 半透明の灰色 */
+            opacity: 0;
         }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
+
+        .arrow {
+            position: absolute;
+            top: 100%;
+            font-size: 1.5em;
+            opacity: 0;
+        }
+
+        .additional-box {
+            background-color: white; /* 追加の四角形 */
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 38px; /* 19pxずつ離す */
+            color: #00ff00; /* 緑色の文字 */
+            opacity: 0;
+        }
+
+        .additional-services {
+            font-size: 1.5em;
+            margin: 0;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes additionalFadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>project-Kanata</h1>
-    <ul>
-        <li><a href="https://example-service-1.com">4Dskin</a>あなたのために4dskinを作成します。</li>
-        <li><a href="https://example-service-2.com">Android 4d</a>AndroidでMinecraftをプレイしている方のためにあなたのお好きな4Dskinを導入したAPKファイルを制作します。</li>
-        <li><a href="https://example-service-3.com">テクスチャ</a>UIなどを変更せずにあなたのお好きな画像、ジャンルでテクスチャを制作します。</li>
-        <li><a href="https://example-service4.com">無料で依頼</a></li>
-    </ul>このサービスはまだ正式に開始していません、そのため料金はとりません、ですが依頼が困難である場合お先に料金をこちらから設定する場合があります(0~100円)まずはご相談を！</li>
-    <li><a href="https://example-service5.com">ご相談方法</a></li>
-    Discord : _arondite
+    <h1>Welcome</h1>
+
+    <div class="box" id="serviceBox">
+        <p class="services" id="serviceText">Service List</p>
+        <p class="arrow" id="arrow">▼</p>
+    </div>
+
+    <div class="additional-box" id="additionalBox">
+        <p class="additional-services" id="additionalText">Android 4dskin</p>
+    </div>
+
+    <div class="additional-box" id="additionalBox2">
+        <p class="additional-services" id="additionalText2">Texture pack</p>
+    </div>
+
+    <div class="additional-box" id="additionalBox3">
+        <p class="additional-services" id="additionalText3">Android Hack client apk</p>
+    </div>
+
+    <script>
+        // アニメーションの制御用に要素を取得
+        const serviceBox = document.getElementById('serviceBox');
+        const serviceText = document.getElementById('serviceText');
+        const arrow = document.getElementById('arrow');
+        const additionalBox = document.getElementById('additionalBox');
+        const additionalText = document.getElementById('additionalText');
+        const additionalBox2 = document.getElementById('additionalBox2');
+        const additionalText2 = document.getElementById('additionalText2');
+        const additionalBox3 = document.getElementById('additionalBox3');
+        const additionalText3 = document.getElementById('additionalText3');
+
+        // Service List のアニメーション
+        serviceBox.style.animation = 'fadeIn 2s ease-out 2s forwards';
+        serviceText.style.animation = 'fadeIn 1s ease-out 3s forwards';
+        arrow.style.animation = 'fadeIn 1s ease-out 2s forwards';
+
+        // Additional Service 1 のアニメーション
+        setTimeout(function() {
+            additionalBox.style.animation = 'fadeIn 1s ease-out forwards';
+            additionalText.style.animation = 'additionalFadeIn 1s ease-out forwards';
+        }, 300);
+
+        // Additional Service 2 のアニメーション
+        setTimeout(function() {
+            additionalBox2.style.animation = 'fadeIn 1s ease-out forwards';
+            additionalText2.style.animation = 'additionalFadeIn 1s ease-out forwards';
+        }, 800);
+
+        // Additional Service 3 のアニメーション
+        setTimeout(function() {
+            additionalBox3.style.animation = 'fadeIn 1s ease-out forwards';
+            additionalText3.style.animation = 'additionalFadeIn 1s ease-out forwards';
+        }, 1300);
+    </script>
 
 </body>
 </html>
